@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cvs {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="300" class="cvs"></canvas>
+</body>
+
+<script>
+    const cvsDom = document.querySelector('.cvs')
+
+    const context = cvsDom.getContext('2d')
+
+    // context.arc(x, y, radius, Math.PI / 180 * startAngle, Math.PI / 180 * endAngle, anticlockwise);
+    // x: 圆心的 x 坐标。  
+    // y: 圆心的 y 坐标。
+    // radius: 圆的半径。
+    // startAngle: 起始角，以弧度计。（弧的圆形的三点钟位置是 0 度）。
+    // endAngle: 结束角，以弧度计。
+    // anticlockwise: 可选。规定应该逆时针还是顺时针绘图。False 为顺时针，true 为逆时针。
+
+
+    // 设置圆的边框颜色
+    context.strokeStyle = 'red';
+
+    context.arc(110, 120, 10, Math.PI / 180 * 0, Math.PI / 180 * 360, true);
+    context.stroke();
+
+    context.beginPath();
+
+    // 最大的圆
+    context.arc(150, 150, 100, Math.PI / 180 * 0, Math.PI / 180 * 360, true); // 画圆 0度到360度 顺时针 true 
+
+    context.stroke();
+    context.beginPath();
+
+    // 嘴
+    context.arc(150, 154, 60, Math.PI / 180 * 30, Math.PI / 180 * 150, false);
+    context.stroke();
+    context.beginPath();
+
+    // 右眼
+    context.arc(190, 120, 10, Math.PI / 180 * 0, Math.PI / 180 * 360, true);
+    context.stroke();
+
+
+</script>
+
+</html>

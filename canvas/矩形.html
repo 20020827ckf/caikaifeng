@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="806" height="300" class="cvs"></canvas>
+</body>
+
+<script>
+    // 获取dom  
+    const cvsDom = document.querySelector('.cvs')
+    // 将dom生成canvas对象
+    const context = cvsDom.getContext('2d')
+    // 设置填充颜色
+    // context.fillStyle='skyblue';
+    // 设置描边颜色
+    context.strokeStyle = 'red';
+    // 设置线宽
+    context.lineWidth = 3;
+
+
+    // 绘制填充矩形
+    // context.fillRect(0, 0, 100, 100);
+    // 绘制描边矩形
+    context.strokeRect(0, 0, 100, 100);
+
+</script>
+
+</html>

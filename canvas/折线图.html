@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cvs {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="600" class="cvs"></canvas>
+</body>
+
+<script>
+    const cvsDom = document.querySelector('.cvs')
+
+    const context = cvsDom.getContext('2d');
+
+    context.beginPath();
+
+    context.moveTo(15, 30);
+    context.lineTo(50, 70);
+    context.lineTo(204, 56);
+
+    context.closePath();
+
+    context.stroke();
+
+    context.beginPath() // 重新开始一条路径
+
+    context.moveTo(350, 150); // 起点
+    context.lineTo(400, 50); // 终点
+    context.lineTo(450, 250); // 终点
+    context.lineTo(500, 100);
+    context.lineTo(350, 150);
+
+    context.stroke(); // 描边
+
+    context.beginPath();
+
+    context.strokeStyle = 'skyblue'; // 设置描边颜色
+    context.fillStyle = 'pink';     // 设置填充颜色
+    context.lineWidth = 10;        // 设置线宽
+
+
+    context.arc(150, 150, 10, Math.PI / 180 * 0, Math.PI / 180 * 360);
+
+
+    context.stroke();
+    context.fill();
+
+
+    context.beginPath();
+    context.translate(300, 300);
+
+
+
+
+    context.font = '60px sans-serif';
+
+
+    context.arc(0, 0, 150, Math.PI / 180 * 0, Math.PI / 180 * 360);
+
+    context.strokeStyle = 'pink';
+    context.fillStyle = 'skyblue';
+    context.lineWidth = 2
+
+    context.stroke();
+    context.strokeText('蔡凯锋', 100, 200);
+
+    context.fill();
+
+
+
+
+
+
+
+</script>
+
+</html>

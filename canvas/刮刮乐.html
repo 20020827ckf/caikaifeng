@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cvs {
+            border: 1px solid #ccc;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .txt {
+            position: absolute;
+            top: 10%;
+            left: 22%;
+            z-index: -1;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cvs" width="600" height="150"></canvas>
+    <div class="txt">恭喜你中了500w</div>
+</body>
+
+<script>
+    const cvsDom = document.querySelector('#cvs')
+    const context = cvsDom.getContext('2d');
+
+    context.fillStyle = '#ccc';
+
+    context.fillRect(0, 0, cvsDom.width, cvsDom.height);
+
+    context.fillStyle = 'red';
+    context.font = '30px Arial';
+    context.textAlign = 'center';
+
+
+    context.fillText('刮刮乐有惊喜', cvsDom.width / 2, cvsDom.height / 2);
+
+
+    let status = false
+
+    cvsDom.addEventListener('mousedown', () => {
+        status = true
+    }, false)
+
+    cvsDom.addEventListener('mousemove', (e) => {
+        if (status) {
+            context.beginPath();
+            let x = e.clientX - cvsDom.offsetLeft 
+            let y = e.clientY - cvsDom.offsetTop  
+
+            context.arc(x, y, 6, Math.PI / 180 * 0, Math.PI / 180 * 360);
+            context.globalCompositeOperation = 'destination-out'; // 擦除
+            context.fill(); // 填充
+
+        }
+
+    }, false)
+
+    cvsDom.addEventListener('mouseup', () => {
+        status = false
+    }, false) 
+
+
+
+</script>
+
+</html>
